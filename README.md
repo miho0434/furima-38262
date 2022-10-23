@@ -11,11 +11,8 @@
 | first_name_kana    | string     | null: false              |
 | date_of_birth      | date       | null: false              |
 
-
-
 ### Association
 has_many :items
-has_many :comments
 has_many :purchase_records
 
 
@@ -36,7 +33,6 @@ has_many :purchase_records
 
 ### Association
 belongs_to :user
-has_many :comments
 has_one :purchase_record
 
 
@@ -47,7 +43,6 @@ has_one :purchase_record
 | ----------------   | --------   | ------------                   |
 | item               | references | null: false ,foreign_key: true |
 | user               | references | null: false ,foreign_key: true |
-| shipping_address   | references | null: false ,foreign_key: true |
 
 
 ### Association
@@ -73,17 +68,5 @@ has_one :shipping_address
 belongs_to :purchase_record
 
 
-===========================================================
-## commentsテーブル(コメント機能)
-
-| Column             | Type       | Options                |
-| ----------------   | --------   | ------------           |
-| user               | references | null: false ,foreign_key: true 
-| item               | references | null: false ,foreign_key: true 
-| text               | text       | null: false            |
-
-### Association
-belongs_to :user
-belongs_to :item
 
 
