@@ -41,7 +41,7 @@ has_one :purchase_record
 
 | Column             | Type       | Options                        |
 | ----------------   | --------   | ------------                   |
-| items               | references | null: false ,foreign_key: true |
+| item               | references | null: false ,foreign_key: true |
 | user               | references | null: false ,foreign_key: true |
 
 
@@ -61,7 +61,7 @@ has_one :shipping_address
 | street_number      | string     | null: false                    |
 | building_name      | string     |                                |
 | phone_number       | string     | null: false                    |
-| purchase_records   | references | null: false ,foreign_key: true |
+| purchase_record    | references | null: false ,foreign_key: true |
 
 
 ### Association
