@@ -7,15 +7,9 @@ class User < ApplicationRecord
   # ニックネーム
   validates :nickname, presence: true
 
-  # メールアドレス
-  EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  validates :email, format: { with: EMAIL_REGEX, message: '[@文字列.文字列]を含めて入力してください' }, allow_blank: true
-
   # パスワード
   PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i.freeze
-  validates :password, format: { with: PASSWORD_REGEX, message: 'には6文字以上の半角英数字を使用して設定してくさいだ' }, allow_blank: true
-  validates :password, confirmation: true
-  validates :password_confirmation, presence: true
+  validates :password, format: { with: PASSWORD_REGEX, message: 'には6文字以上の半角英数字を使用して設定してください' }, allow_blank: true
 
   # 苗字・名前をグループ化
   with_options presence: true, format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/, message: '全角文字を使用してください', allow_blank: true } do
