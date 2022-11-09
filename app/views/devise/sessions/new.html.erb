@@ -1,0 +1,51 @@
+<%= render "shared/second-header"%>
+
+<div class ="registration-main">
+
+  <div class = "form-wrap">
+  
+    <div class ="form-header">
+      <h2 class =form-header-text>会員情報入力</h2>
+    </div>
+    
+    <div class='login-flash-message'>
+      <%= notice %>
+      <%= alert %>
+    </div>
+
+    <div class="form-group">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+        <div class="form-text-wrap ">
+          <div class="form-text">
+            <%= f.label :email, "メールアドレス"%>
+            <span class="required">必須</span>
+          </div>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email" , :placeholder=>"PC・携帯どちらでも可", class:"input-default"%>
+        </div>
+
+        <div class="form-text-wrap ">
+          <div class="form-text">
+            <%= f.label :password ,"パスワード"%>
+            <span class="required">必須</span>
+            <%= f.password_field :password, autocomplete: "current-password" , class:"input-default"%>
+          </div>
+        </div>
+
+        <% if devise_mapping.rememberable? %>
+        <div class="field">
+          <% f.check_box :remember_me %>
+          <% f.label :remember_me %>
+        </div>
+        <% end %>
+
+        <div class="login-btn ">
+          <%= f.submit "ログイン", class: "login-red-btn"%>
+        </div>
+
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<%= render "shared/second-footer"%>
