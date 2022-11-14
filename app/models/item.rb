@@ -11,8 +11,10 @@ class Item < ApplicationRecord
   validates :prefecture_id,            numericality: { other_than: 1, message: "can't be blank" }
   validates :delivery_day_id,          numericality: { other_than: 1, message: "can't be blank" }
   validates :price,                     presence: true,
-                                        numericality: { greater_than: 299, less_than: 10_000_000, message: ' is out of setting range' },
+                                        numericality:{ greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999, message: "は ¥300~9,999,999 の間で半角数字で指定してください" },
                                         format: { with: /\A[0-9]+\z/, message: 'is invalid. Input half-width characters' }
+
+
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :category
