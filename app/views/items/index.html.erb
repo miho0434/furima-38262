@@ -126,12 +126,21 @@
       <div class="subtitle" >
         新規投稿商品
       </div>
+<<<<<<< Updated upstream
     <%# 商品のインスタンス変数が存在している場合、eachメソッドを使って、商品情報を表示 %>
     <ul class='item-lists'>
       <% if @items.present? %>
         <% @items.each do |item| %>
           <li class='list'>
           <%= link_to "#" do %>
+=======
+    <ul class='item-lists'>
+      <%# 商品のインスタンス変数が存在している場合、eachメソッドを使って、商品情報を表示 %>
+      <% if @items.present? %>
+        <% @items.each do |item| %>
+          <li class='list'>
+          <%= link_to "item_path" do %>
+>>>>>>> Stashed changes
             <div class='item-img-content'>
               <%= image_tag item.image.variant(gravity: :center, resize:"250x250^", crop:"250x250+0+0").processed , class: "item-img" %>
 
