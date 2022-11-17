@@ -3,11 +3,8 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.includes(:user)
-<<<<<<< Updated upstream
     @items = Item.order("id DESC")
-=======
->>>>>>> Stashed changes
-  end
+ end
 
   def new
     @item = Item.new
