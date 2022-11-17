@@ -2,7 +2,8 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new]
 
   def index
-  end
+    @items = Item.order("id DESC")
+ end
 
   def new
     @item = Item.new
@@ -16,6 +17,9 @@ class ItemsController < ApplicationController
       @items = Item.includes(:user)
       render :new
     end
+  end
+
+  def show
   end
 
   private

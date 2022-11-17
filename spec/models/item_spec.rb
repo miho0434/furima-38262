@@ -93,25 +93,24 @@ RSpec.describe Item, type: :model do
       it '価格は¥299以下だと出品できない' do
         @item.price = '290'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price は ¥300~9,999,999 の間で半角数字で指定してください")
+        expect(@item.errors.full_messages).to include('Price は ¥300~9,999,999 の間で半角数字で指定してください')
       end
       it '価格は￥10,000,000以上だと出品できない' do
         @item.price = '10000000'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price は ¥300~9,999,999 の間で半角数字で指定してください")
+        expect(@item.errors.full_messages).to include('Price は ¥300~9,999,999 の間で半角数字で指定してください')
       end
       it '価格は半角数値以外だと出品できない' do
         @item.price = '５００あ'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price は ¥300~9,999,999 の間で半角数字で指定してください")
+        expect(@item.errors.full_messages).to include('Price は ¥300~9,999,999 の間で半角数字で指定してください')
       end
 
       it 'userが紐付いていないと保存できない' do
         @item.user = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("User must exist")
+        expect(@item.errors.full_messages).to include('User must exist')
       end
-
     end
   end
 end
