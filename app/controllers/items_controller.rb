@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.order("id DESC")
- end
+  end
 
   def new
     @item = Item.new
@@ -20,6 +20,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @item = Item.find(params[:id])
   end
 
   private

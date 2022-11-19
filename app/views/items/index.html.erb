@@ -132,7 +132,7 @@
       <% if @items.present? %>
         <% @items.each do |item| %>
           <li class='list'>
-          <%= link_to "#" do %>
+          <%= link_to item_path(item.id) do %>
 
             <div class='item-img-content'>
               <%= image_tag item.image.variant(gravity: :center, resize:"250x250^", crop:"250x250+0+0").processed , class: "item-img" %>
