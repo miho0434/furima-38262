@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new,:edit]
-  before_action :set_item, only: [:edit,:update]
+  before_action :set_item, only: [:show, :edit,:update]
   #出品者以外のユーザーが、出品者専用のページに遷移できないよう設定
   before_action :redirect_root, except: [:index, :show]
       
@@ -25,24 +25,22 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
+    #set_itemにて@itemは定義済み
   end
 
   def edit
-    @item = Item.find(params[:id])
+    #set_itemにて@itemは定義済み
   end
 
   def update
-    @item = Item.find(params[:id])
+    #set_itemにて@itemは定義済み
     if @item.update(item_params)
       redirect_to item_path(@item.id)
     else
-      item = Item.find(params[:id])
+
       render :edit
     end
   end
-  
-  
 
   private
 
@@ -56,8 +54,8 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
-    def redirect_root
-      redirect_to root_path unless current_user == @item.user
-    end
+  def redirect_root
+    redirect_to root_path unless current_user == @item.user
+  end
   
 end
