@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new,:edit]
   before_action :set_item, only: [:show, :edit,:update]
   #出品者以外のユーザーが、出品者専用のページに遷移できないよう設定
-  before_action :redirect_root, except: [:index, :show]
+  before_action :redirect_root, except: [:index, :new, :create, :show, :destroy]
       
 
 
@@ -40,6 +40,13 @@ class ItemsController < ApplicationController
 
       render :edit
     end
+  end
+
+  def destroy
+    item = Item.find(params[:id])
+      if item.destroy
+        redirect_to root_path
+      end
   end
 
   private
