@@ -1,13 +1,11 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, only: [:new,:edit]
-  before_action :set_item, only: [:show, :edit,:update]
-  #出品者以外のユーザーが、出品者専用のページに遷移できないよう設定
+  before_action :authenticate_user!, only: [:new, :edit]
+  before_action :set_item, only: [:show, :edit, :update]
+  # 出品者以外のユーザーが、出品者専用のページに遷移できないよう設定
   before_action :redirect_root, except: [:index, :new, :create, :show, :destroy]
-      
-
 
   def index
-    @items = Item.order("id DESC")
+    @items = Item.order('id DESC')
   end
 
   def new
@@ -25,15 +23,15 @@ class ItemsController < ApplicationController
   end
 
   def show
-    #set_itemにて@itemは定義済み
+    # set_itemにて@itemは定義済み
   end
 
   def edit
-    #set_itemにて@itemは定義済み
+    # set_itemにて@itemは定義済み
   end
 
   def update
-    #set_itemにて@itemは定義済み
+    # set_itemにて@itemは定義済み
     if @item.update(item_params)
       redirect_to item_path(@item.id)
     else
@@ -44,9 +42,7 @@ class ItemsController < ApplicationController
 
   def destroy
     item = Item.find(params[:id])
-      if item.destroy
-        redirect_to root_path
-      end
+    redirect_to root_path if item.destroy
   end
 
   private
@@ -64,5 +60,4 @@ class ItemsController < ApplicationController
   def redirect_root
     redirect_to root_path unless current_user == @item.user
   end
-  
 end
