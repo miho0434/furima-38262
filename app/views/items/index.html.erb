@@ -137,14 +137,11 @@
             <div class='item-img-content'>
               <%= image_tag item.image.variant(gravity: :center, resize:"250x250^", crop:"250x250+0+0").processed , class: "item-img" %>
 
-              <%# 商品が売れていればsold outを表示しましょう %>
-              <%# 商品購入機能実装した後に追加で実装
-              <%# if @items 
+              <% if item.purchase.present?%>
                 <div class='sold-out'>
                   <span>Sold Out!!</span>
                 </div>
-              <%# end %>
-              <%# //商品が売れていればsold outを表示しましょう %>
+              <% end %>
 
             </div>
             <div class='item-info'>
