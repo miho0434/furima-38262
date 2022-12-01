@@ -10,10 +10,8 @@
 /* form-wrapは商品購入画面でも使用しています */
 .form-wrap {
   width: 50%;
-  height: 100%-200px;
   background-color: white;
   padding-bottom: 70px;
-  background-color: white;
 }
 
 .form-header {
@@ -44,7 +42,6 @@
 .form-text-wrap {
   width: 100%;
   height: 20%;
-  padding-top: 20px;
 }
 
 .form-text {
@@ -68,7 +65,6 @@
   color: #888;
   font-size: 15px;
   margin-top: 3px;
-  text-align: start;
 }
 
 .form-info-header {
@@ -92,18 +88,15 @@
   line-height: 30px;
   padding: 10px 16px 8px;
   border-radius: 4px;
+  border: 1px solid #ccc;
   background: #fff;
   font-size: 14px;
   resize: none;
-  border: 1px solid #ccc;
-  overflow-y: scroll;
-  
 }
 
 .input-birth-wrap {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
 }
 
 .input-birth-wrap select {
@@ -137,19 +130,17 @@
 .form-bottom-text:last-child {
   margin: 0;
   padding-bottom: 50px;
-  text-align: start;
 }
 
-.form-bottom-text-a {
+.form-bottom-text>span {
   color: #0099e8;
   cursor: pointer;
 }
 
 .register-btn {
-  width: 100%;
+  width: 50%;
   margin: 0 auto;
 }
-
 
 .register-red-btn {
   width: 100%;
@@ -162,31 +153,8 @@
 }
 
 .register-info {
-  margin: 30px auto ;
+  margin: 30px 180px 0 0;
   color: #0099e8;
   text-align: right;
   cursor: pointer;
 }
-
-.required{
-  background-color: #ea352d;
-  color: #fff;
-  font-size: 12px;
-  font-weight: bold;
-  min-width: 10px;
-  padding: 3px 3px;
-  margin: 0px 10px;
-  line-height: 1;
-  vertical-align: middle;
-  white-space: nowrap;
-  text-align: center;
-  border-radius: 4px;
-  display: inline-block;
-}
-
-.error-messages{
-  font-size: 14px;
-  color: #AE3846;
-  list-style-type: circle;
-}
-
